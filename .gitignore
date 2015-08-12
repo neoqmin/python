@@ -1,0 +1,56 @@
+# svn directories
+.svn
+
+# visual studio enviorment temp files
+*.suo
+*.aps
+*.user
+*.filters
+*.manifest
+vc90.pdb
+vc90.idb
+mt.dep
+*.pch
+*.opensdf
+
+# compile temp files
+*.exp
+*.ilk
+
+# driver temp files
+*.obj
+*.tmh
+objchk_*
+objfre_*
+*.log
+
+# this project's documents
+Documents
+
+# trace file for drivers
+TraceFile
+
+# temp directories
+Test
+Debug
+Backup
+*.htm
+*-temp-*
+
+#python
+Doc
+Grammar
+Lib
+Mac
+Misc
+Tools
+config.guess
+config.sub
+configure
+configure.ac
+install-sh
+LICENSE
+Makefile.pre.in
+README
+setup.py
+
