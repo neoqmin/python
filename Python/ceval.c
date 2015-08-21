@@ -1276,8 +1276,9 @@ PyEval_EvalFrameEx(PyFrameObject *f, int throwflag)
                     PyThread_exit_thread();
                 }
 
-                if (PyThreadState_Swap(tstate) != NULL)
-                    Py_FatalError("ceval: orphan tstate");
+				PyThreadState_Swap(tstate);
+                //if (PyThreadState_Swap(tstate) != NULL)
+                   // Py_FatalError("ceval: orphan tstate");
             }
 #endif
             /* Check for asynchronous exceptions. */

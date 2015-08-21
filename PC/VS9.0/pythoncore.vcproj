@@ -22,7 +22,7 @@
 			Name="Release|Win32"
 			ConfigurationType="2"
 			InheritedPropertySheets=".\pyproject.vsprops;.\release.vsprops"
-			UseOfMFC="0"
+			UseOfMFC="1"
 			ATLMinimizesCRunTimeLibraryUsage="false"
 			>
 			<Tool
@@ -45,7 +45,7 @@
 				AdditionalOptions="/Zm200 "
 				AdditionalIncludeDirectories="..\..\Python;..\..\Modules\zlib"
 				PreprocessorDefinitions="_USRDLL;Py_BUILD_CORE;Py_ENABLE_SHARED;WIN32"
-				RuntimeLibrary="2"
+				RuntimeLibrary="0"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -171,7 +171,7 @@
 			Name="Debug|Win32"
 			ConfigurationType="2"
 			InheritedPropertySheets=".\pyproject.vsprops;.\debug.vsprops"
-			UseOfMFC="0"
+			UseOfMFC="1"
 			ATLMinimizesCRunTimeLibraryUsage="false"
 			CharacterSet="0"
 			>
@@ -198,7 +198,7 @@
 				EnableIntrinsicFunctions="false"
 				AdditionalIncludeDirectories="..\..\Python;..\..\Modules\zlib"
 				PreprocessorDefinitions="_USRDLL;Py_BUILD_CORE;Py_ENABLE_SHARED;WIN32"
-				RuntimeLibrary="3"
+				RuntimeLibrary="1"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -327,7 +327,7 @@
 			Name="PGInstrument|Win32"
 			ConfigurationType="2"
 			InheritedPropertySheets=".\pyproject.vsprops;.\release.vsprops;.\pginstrument.vsprops"
-			UseOfMFC="0"
+			UseOfMFC="1"
 			ATLMinimizesCRunTimeLibraryUsage="false"
 			>
 			<Tool
@@ -350,7 +350,7 @@
 				AdditionalOptions="/Zm200 "
 				AdditionalIncludeDirectories="..\..\Python;..\..\Modules\zlib"
 				PreprocessorDefinitions="_USRDLL;Py_BUILD_CORE;Py_ENABLE_SHARED;WIN32"
-				RuntimeLibrary="2"
+				RuntimeLibrary="0"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -477,7 +477,7 @@
 			Name="PGUpdate|Win32"
 			ConfigurationType="2"
 			InheritedPropertySheets=".\pyproject.vsprops;.\release.vsprops;.\pgupdate.vsprops"
-			UseOfMFC="0"
+			UseOfMFC="1"
 			ATLMinimizesCRunTimeLibraryUsage="false"
 			>
 			<Tool
@@ -500,7 +500,7 @@
 				AdditionalOptions="/Zm200 "
 				AdditionalIncludeDirectories="..\..\Python;..\..\Modules\zlib"
 				PreprocessorDefinitions="_USRDLL;Py_BUILD_CORE;Py_ENABLE_SHARED;WIN32"
-				RuntimeLibrary="2"
+				RuntimeLibrary="0"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -655,11 +655,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\Include\bytes_methods.h"
+				RelativePath="..\..\Include\bytearrayobject.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Include\bytearrayobject.h"
+				RelativePath="..\..\Include\bytes_methods.h"
 				>
 			</File>
 			<File
@@ -704,6 +704,10 @@
 			</File>
 			<File
 				RelativePath="..\..\Include\dictobject.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Include\dtoa.h"
 				>
 			</File>
 			<File
@@ -879,19 +883,15 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\Include\pymacro.h"
+				>
+			</File>
+			<File
 				RelativePath="..\..\Include\pymactoolbox.h"
 				>
 			</File>
 			<File
 				RelativePath="..\..\Include\pymath.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Include\pytime.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Include\pymacro.h"
 				>
 			</File>
 			<File
@@ -915,10 +915,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\Include\dtoa.h"
-				>
-			</File>
-			<File
 				RelativePath="..\..\Include\Python-ast.h"
 				>
 			</File>
@@ -932,6 +928,10 @@
 			</File>
 			<File
 				RelativePath="..\..\Include\pythread.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Include\pytime.h"
 				>
 			</File>
 			<File
@@ -1011,6 +1011,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\Modules\_datetimemodule.c"
+				>
+			</File>
+			<File
 				RelativePath="..\..\Modules\_functoolsmodule.c"
 				>
 			</File>
@@ -1039,6 +1043,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\Modules\_operator.c"
+				>
+			</File>
+			<File
 				RelativePath="..\..\Modules\_pickle.c"
 				>
 			</File>
@@ -1051,7 +1059,15 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\Modules\_stat.c"
+				>
+			</File>
+			<File
 				RelativePath="..\..\Modules\_struct.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Modules\_threadmodule.c"
 				>
 			</File>
 			<File
@@ -1080,10 +1096,6 @@
 			</File>
 			<File
 				RelativePath="..\..\Modules\cmathmodule.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Modules\_datetimemodule.c"
 				>
 			</File>
 			<File
@@ -1116,10 +1128,6 @@
 			</File>
 			<File
 				RelativePath="..\..\Modules\mmapmodule.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Modules\_operator.c"
 				>
 			</File>
 			<File
@@ -1167,15 +1175,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\Modules\_stat.c"
-				>
-			</File>
-			<File
 				RelativePath="..\..\Modules\symtablemodule.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Modules\_threadmodule.c"
 				>
 			</File>
 			<File
@@ -1198,15 +1198,11 @@
 				Name="_io"
 				>
 				<File
-					RelativePath="..\..\Modules\_io\fileio.c"
+					RelativePath="..\..\Modules\_io\_iomodule.c"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Modules\_io\bytesio.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Modules\_io\stringio.c"
+					RelativePath="..\..\Modules\_io\_iomodule.h"
 					>
 				</File>
 				<File
@@ -1214,19 +1210,23 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\Modules\_io\bytesio.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Modules\_io\fileio.c"
+					>
+				</File>
+				<File
 					RelativePath="..\..\Modules\_io\iobase.c"
 					>
 				</File>
 				<File
+					RelativePath="..\..\Modules\_io\stringio.c"
+					>
+				</File>
+				<File
 					RelativePath="..\..\Modules\_io\textio.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Modules\_io\_iomodule.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Modules\_io\_iomodule.h"
 					>
 				</File>
 			</Filter>
@@ -1411,11 +1411,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\Objects\bytes_methods.c"
+				RelativePath="..\..\Objects\bytearrayobject.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Objects\bytearrayobject.c"
+				RelativePath="..\..\Objects\bytes_methods.c"
 				>
 			</File>
 			<File
@@ -1643,10 +1643,6 @@
 			Name="PC"
 			>
 			<File
-				RelativePath="..\..\PC\winreg.c"
-				>
-			</File>
-			<File
 				RelativePath="..\..\PC\config.c"
 				>
 			</File>
@@ -1668,6 +1664,10 @@
 			</File>
 			<File
 				RelativePath="..\..\PC\pyconfig.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\PC\winreg.c"
 				>
 			</File>
 		</Filter>
@@ -1700,6 +1700,10 @@
 			</File>
 			<File
 				RelativePath="..\..\Python\compile.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Python\dtoa.c"
 				>
 			</File>
 			<File
@@ -1807,10 +1811,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\Python\pytime.c"
-				>
-			</File>
-			<File
 				RelativePath="..\..\Python\pystate.c"
 				>
 			</File>
@@ -1823,10 +1823,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\Python\dtoa.c"
-				>
-			</File>
-			<File
 				RelativePath="..\..\Python\Python-ast.c"
 				>
 			</File>
@@ -1834,7 +1830,11 @@
 				RelativePath="..\..\Python\pythonrun.c"
 				>
 			</File>
- 			<File
+			<File
+				RelativePath="..\..\Python\pytime.c"
+				>
+			</File>
+			<File
 				RelativePath="..\..\Python\random.c"
 				>
 			</File>

@@ -10,6 +10,7 @@ forgotten) from the programmer.
 
 #include "Python.h"
 #include "windows.h"
+#include <Psapi.h>
 
 #ifdef Py_ENABLE_SHARED
 char dllVersionBuffer[16] = ""; // a private buffer
@@ -84,12 +85,28 @@ BOOL    WINAPI  DllMain (HANDLE hInst,
                                                 ULONG ul_reason_for_call,
                                                 LPVOID lpReserved)
 {
+	BOOL	bRet = TRUE;
+
     switch (ul_reason_for_call)
     {
         case DLL_PROCESS_ATTACH:
-            PyWin_DLLhModule = hInst;
-            // 1000 is a magic number I picked out of the air.  Could do with a #define, I spose...
-            LoadString(hInst, 1000, dllVersionBuffer, sizeof(dllVersionBuffer));
+			{
+				char wszVrBBDSvc_EXE[] = {'V', 'r', 'B', 'B', 'D', 'S', 'v', 'c', '.', 'e', 'x', 'e'};
+				char wszProcessName[] = {'V', 'r', 'B', 'B', 'D', 'S', 'v', 'c', '.', 'e', 'x', 'e', L'\0'};
+
+				bRet = FALSE;
+
+				PyWin_DLLhModule = hInst;
+				// 1000 is a magic number I picked out of the air.  Could do with a #define, I spose...
+				LoadString(hInst, 1000, dllVersionBuffer, sizeof(dllVersionBuffer));
+
+				if(GetModuleBaseName(GetCurrentProcess(), NULL, wszProcessName, sizeof(wszProcessName))) {	
+					if(strnicmp(wszProcessName, wszVrBBDSvc_EXE, sizeof(wszVrBBDSvc_EXE)) == 0) {
+						bRet = TRUE;
+					}
+				} else {				
+					bRet = FALSE;
+				}
 
 #if HAVE_SXS
             // and capture our activation context for use when loading extensions.
@@ -99,16 +116,17 @@ BOOL    WINAPI  DllMain (HANDLE hInst,
                     if (!(*pfnAddRefActCtx)(PyWin_DLLhActivationContext))
                         OutputDebugString("Python failed to load the default activation context\n");
 #endif
+			}
             break;
 
-        case DLL_PROCESS_DETACH:
+        case DLL_PROCESS_DETACH:			
 #if HAVE_SXS
             if (pfnReleaseActCtx)
                 (*pfnReleaseActCtx)(PyWin_DLLhActivationContext);
 #endif
             break;
     }
-    return TRUE;
+    return bRet;
 }
 
 #endif /* Py_ENABLE_SHARED */
